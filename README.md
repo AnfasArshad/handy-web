@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HandySof Corporate Website
 
-## Getting Started
+A modern, simple, responsive company website for **HandySof** — a software development team focused on building modern, reliable, and user-friendly digital solutions.
 
-First, run the development server:
+Built with [Next.js](https://nextjs.org) (App Router), [TypeScript](https://www.typescriptlang.org), and [Tailwind CSS v4](https://tailwindcss.com).
 
+---
+
+## 🎨 Brand Identity & Color System
+
+The design system strictly adheres to the official HandySof brand identity:
+
+- **Primary Brand Blue**: `#00608E` — Used for main headings, navbar accents, primary buttons, and key structural elements.
+- **Brand Teal Accent**: `#00A69C` — Used for highlights, feature icons, hover states, and tech badges.
+- **Backgrounds**: White (`#FFFFFF`) and soft off-white (`#F8FAFC`, `#F9FBFC`) with generous whitespace.
+- **Typography**: Clean, neutral, high-contrast typography using Inter.
+
+---
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the Development Server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Production Build
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+src/
+├── app/
+│   ├── api/
+│   │   └── contact/
+│   │       └── route.ts         # Contact form API endpoint with validation & email hook
+│   ├── favicon.ico              # Browser favicon
+│   ├── globals.css              # Tailwind CSS theme & brand color configuration
+│   ├── icon.png                 # Dynamic App icon
+│   ├── layout.tsx               # Root layout, SEO metadata, OpenGraph, viewport settings
+│   └── page.tsx                 # Home page assembling all sections
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx           # Sticky responsive navbar with mobile drawer
+│   │   └── Footer.tsx           # Footer with logo, nav links, social icons & copyright
+│   ├── sections/
+│   │   ├── HeroSection.tsx      # Strong hero with headline, CTAs, and reassurance points
+│   │   ├── HeroGraphic.tsx      # Tech-inspired geometric visual based on HandySof logo
+│   │   ├── AboutSection.tsx     # "Who We Are" section with 3 engineering pillars
+│   │   ├── ServicesSection.tsx  # "What We Do" with 4 core services and line icons
+│   │   ├── ProjectsSection.tsx  # "What We're Building" featuring AIN Masjid System
+│   │   ├── WhyUsSection.tsx     # "Why HandySof" with 3 core principles
+│   │   └── ContactSection.tsx   # Contact form with direct WhatsApp, Email, & LinkedIn
+│   └── ui/
+│       ├── Button.tsx           # Reusable button with brand variants
+│       ├── Icons.tsx            # Crisp vector icons for LinkedIn, GitHub, WhatsApp
+│       ├── ProjectCard.tsx      # Reusable project card with tags and badge
+│       └── SectionHeading.tsx   # Reusable section heading with eyebrow badge
+├── data/
+│   ├── navigation.ts            # Nav links & social channels
+│   ├── projects.ts              # Projects data (easily extensible)
+│   ├── services.ts              # Services data
+│   └── why-us.ts                # Why HandySof 3 core pillars
+└── types/
+    └── index.ts                 # TypeScript interfaces
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📧 Contact Form & Email Integration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contact form is currently wired to `POST /api/contact`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To integrate an email delivery service (such as [Resend](https://resend.com), [SendGrid](https://sendgrid.com), or [Nodemailer](https://nodemailer.com)), open `src/app/api/contact/route.ts` and replace the placeholder block with your provider's SDK.
+
+---
+
+## 🛠 Adding New Projects
+
+To add more projects to the **"What We're Building"** section, simply append new entries to the `PROJECTS` array in `src/data/projects.ts`:
+
+```typescript
+export const PROJECTS: ProjectItem[] = [
+  // ... existing projects
+  {
+    id: 'your-project-id',
+    title: 'Project Title',
+    subtitle: 'Project Subtitle',
+    description: 'Detailed description...',
+    badge: 'Coming Soon', // or 'Active'
+    tags: ['Web Application', 'Cloud'],
+    logoSrc: '/images/your-logo.png',
+    highlights: ['Key feature 1', 'Key feature 2'],
+    status: 'in_development',
+  },
+];
+```
+
+---
+
+## 🌐 SEO & Social Sharing
+
+SEO metadata is configured in `src/app/layout.tsx`:
+- **Title**: `HandySof | Software Development & Digital Solutions`
+- **Description**: `HandySof builds modern, reliable and user-friendly software solutions, web applications and business management systems.`
+- **OpenGraph & Twitter Cards**: Configured with the official HandySof stacked logo.
