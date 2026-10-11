@@ -66,8 +66,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3.5'
-          : 'bg-white/80 backdrop-blur-sm py-5'
+          ? 'bg-white/95 backdrop-blur-md shadow-xs border-b border-slate-200/80 py-3 sm:py-3.5'
+          : 'bg-white/80 backdrop-blur-sm py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +82,7 @@ export default function Navbar() {
             }}
             aria-label="HandySof Home"
           >
-            <div className="relative h-9 w-[130px] sm:h-10 sm:w-[145px] transition-transform duration-200 group-hover:scale-[1.02]">
+            <div className="relative h-8 w-[120px] sm:h-10 sm:w-[145px] transition-transform duration-200 group-hover:scale-[1.02]">
               <Image
                 src="/images/logo-horizontal.png"
                 alt="HandySof"
@@ -119,7 +119,7 @@ export default function Navbar() {
           </nav>
 
           {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href="#contact"
               onClick={(e) => {
@@ -135,11 +135,11 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-slate-700 hover:text-brand-blue-600 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-600"
+              className="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-slate-700 hover:text-brand-blue-600 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-600 touch-manipulation"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
@@ -147,15 +147,17 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 top-[65px] bg-slate-900/40 backdrop-blur-xs z-40 md:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <>
           <div
-            className="bg-white border-b border-slate-200 px-6 py-6 shadow-xl max-h-[calc(100vh-65px)] overflow-y-auto"
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs -z-10 md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div
+            className="absolute top-full left-0 right-0 bg-white border-b border-slate-200/90 px-5 py-5 sm:px-6 sm:py-6 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto md:hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-1.5 sm:gap-2">
               {NAV_ITEMS.map((item) => {
                 const sectionId = item.href.replace('#', '');
                 const isActive = activeSection === sectionId;
@@ -167,10 +169,10 @@ export default function Navbar() {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className={`px-4 py-3 rounded-lg text-base font-medium flex items-center justify-between transition-colors ${
+                    className={`px-4 py-3 rounded-xl text-base font-medium flex items-center justify-between transition-colors ${
                       isActive
-                        ? 'text-brand-blue-600 bg-brand-blue-50 font-semibold'
-                        : 'text-slate-700 hover:bg-slate-50 hover:text-brand-blue-600'
+                        ? 'text-brand-blue-600 bg-brand-blue-50/80 font-semibold'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-brand-blue-600 active:bg-slate-100'
                     }`}
                   >
                     <span>{item.label}</span>
@@ -179,21 +181,21 @@ export default function Navbar() {
                 );
               })}
 
-              <div className="pt-4 mt-2 border-t border-slate-100">
+              <div className="pt-3 mt-2 border-t border-slate-100">
                 <a
                   href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick('#contact');
                   }}
-                  className="w-full inline-flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-brand-blue-600 rounded-lg hover:bg-brand-blue-700 transition-colors shadow-sm"
+                  className="w-full inline-flex items-center justify-center px-5 py-3 text-base font-semibold text-white bg-brand-blue-600 rounded-xl hover:bg-brand-blue-700 active:bg-brand-blue-800 transition-colors shadow-sm"
                 >
                   Let&apos;s Talk
                 </a>
               </div>
             </nav>
           </div>
-        </div>
+        </>
       )}
     </header>
   );
