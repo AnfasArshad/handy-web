@@ -11,7 +11,7 @@ const iconMap = {
 
 export default function WhyUsSection() {
   return (
-    <section id="why-us" className="py-20 sm:py-28 bg-slate-50/60 border-t border-slate-100">
+    <section id="why-us" className="py-16 sm:py-24 lg:py-28 bg-slate-50/60 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Why Choose Us"
@@ -19,25 +19,25 @@ export default function WhyUsSection() {
           subtitle="Our engineering philosophy centers on clarity, practical utility, and lasting technological value."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
           {WHY_POINTS.map((point, index) => {
             const Icon = iconMap[point.iconName];
             return (
               <div
                 key={point.title}
-                className="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-brand-teal-500/50 transition-all duration-200 flex flex-col items-start"
+                className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-brand-teal-500/50 transition-all duration-200 flex flex-col items-start"
               >
                 {/* Step / Number accent badge */}
-                <div className="w-full flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-600 flex items-center justify-center border border-brand-blue-100">
-                    <Icon className="w-6 h-6" />
+                <div className="w-full flex items-center justify-between mb-4 sm:mb-6">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-blue-50 text-brand-blue-600 flex items-center justify-center border border-brand-blue-100">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <span className="text-2xl font-bold font-mono text-slate-200">
+                  <span className="text-xl sm:text-2xl font-bold font-mono text-slate-200">
                     0{index + 1}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-brand-blue-900 mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-brand-blue-900 mb-2 sm:mb-3">
                   {point.title}
                 </h3>
 

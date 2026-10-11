@@ -106,7 +106,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 sm:py-28 bg-white border-t border-slate-100"
+      className="py-16 sm:py-24 lg:py-28 bg-white border-t border-slate-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -115,36 +115,36 @@ export default function ContactSection() {
           subtitle="Looking for a software solution or want to discuss an idea? We'd love to hear from you."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 max-w-6xl mx-auto items-start">
           {/* Left Column: Direct Contact Info & Quick Links */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-8">
+          <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6 sm:space-y-8">
             <div>
-              <h3 className="text-xl font-bold text-brand-blue-900 mb-3">
+              <h3 className="text-xl font-bold text-brand-blue-900 mb-2 sm:mb-3">
                 Let&apos;s start a conversation
               </h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6">
                 Whether you need a full web platform, a business tool, or
                 technical guidance on an upcoming project, we are ready to
                 assist.
               </p>
 
               {/* Direct channels cards */}
-              <div className="space-y-3.5">
+              <div className="space-y-3 sm:space-y-3.5">
                 {/* WhatsApp */}
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-xl border border-slate-200/80 hover:border-brand-teal-500 hover:bg-brand-teal-50/20 transition-all duration-200 group"
+                  className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl border border-slate-200/80 hover:border-brand-teal-500 hover:bg-brand-teal-50/20 transition-all duration-200 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
                     <WhatsAppIcon className="w-5 h-5" />
                   </div>
-                  <div>
-                    <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                  <div className="min-w-0 flex-1">
+                    <div className="text-[11px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider truncate">
                       Chat on WhatsApp
                     </div>
-                    <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue-700">
+                    <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue-700 truncate">
                       Quick Project Consultation
                     </div>
                   </div>
@@ -153,16 +153,16 @@ export default function ContactSection() {
                 {/* Email */}
                 <a
                   href={SOCIAL_LINKS.email}
-                  className="flex items-center gap-4 p-4 rounded-xl border border-slate-200/80 hover:border-brand-blue-500 hover:bg-brand-blue-50/20 transition-all duration-200 group"
+                  className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl border border-slate-200/80 hover:border-brand-blue-500 hover:bg-brand-blue-50/20 transition-all duration-200 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-brand-blue-50 text-brand-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-brand-blue-50 text-brand-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <div>
-                    <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                  <div className="min-w-0 flex-1">
+                    <div className="text-[11px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider truncate">
                       Email Us
                     </div>
-                    <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue-700">
+                    <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue-700 truncate">
                       handysof@outlook.com
                     </div>
                   </div>
@@ -173,16 +173,16 @@ export default function ContactSection() {
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-xl border border-slate-200/80 hover:border-brand-blue-500 hover:bg-brand-blue-50/20 transition-all duration-200 group"
+                  className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl border border-slate-200/80 hover:border-brand-blue-500 hover:bg-brand-blue-50/20 transition-all duration-200 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
                     <LinkedInIcon className="w-5 h-5" />
                   </div>
-                  <div>
-                    <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                  <div className="min-w-0 flex-1">
+                    <div className="text-[11px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider truncate">
                       Connect on LinkedIn
                     </div>
-                    <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue-700">
+                    <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue-700 truncate">
                       HandySof
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export default function ContactSection() {
             </div>
 
             {/* Response time note */}
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600">
               <span className="font-semibold text-slate-800">
                 Quick Response:
               </span>{" "}
@@ -202,8 +202,8 @@ export default function ContactSection() {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-slate-50/60 rounded-2xl p-6 sm:p-8 lg:p-10 border border-slate-200/80 shadow-xs">
-              <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="bg-slate-50/60 rounded-2xl p-5 sm:p-8 lg:p-10 border border-slate-200/80 shadow-xs">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 {/* Name */}
                 <div>
                   <label
@@ -220,7 +220,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="e.g. Alex Morgan"
-                    className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue-600 focus:border-transparent transition-all text-sm"
+                    className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue-600 focus:border-transparent transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -240,7 +240,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="alex@company.com"
-                    className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue-600 focus:border-transparent transition-all text-sm"
+                    className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue-600 focus:border-transparent transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -256,11 +256,11 @@ export default function ContactSection() {
                     id="message"
                     name="message"
                     required
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Briefly describe your requirements or ideas..."
-                    className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue-600 focus:border-transparent transition-all text-sm resize-y"
+                    className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue-600 focus:border-transparent transition-all text-base sm:text-sm resize-y"
                   />
                 </div>
 

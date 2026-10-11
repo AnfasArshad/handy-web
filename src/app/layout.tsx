@@ -76,7 +76,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col bg-white text-slate-800 antialiased font-sans" suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col bg-white text-slate-800 antialiased font-sans overflow-x-hidden" suppressHydrationWarning>
         {/* Accessible skip link */}
         <a
           href="#main-content"
@@ -85,7 +85,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="flex-1 w-full overflow-x-hidden">
           {children}
         </main>
         <Footer />
