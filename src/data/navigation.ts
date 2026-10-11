@@ -9,9 +9,19 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Contact', href: '#contact' },
 ];
 
+export const WHATSAPP_PHONE_NUMBER = '94726108293';
+export const DEFAULT_WHATSAPP_MESSAGE =
+  'Hello HandySof team! I would like to inquire about your software development services and discuss a project.';
+
+export function getWhatsAppUrl(customMessage?: string): string {
+  const message = customMessage?.trim() || DEFAULT_WHATSAPP_MESSAGE;
+  return `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 export const SOCIAL_LINKS = {
   email: 'mailto:contact@handysof.com',
-  whatsapp: 'https://wa.me/?text=Hello%20HandySof%20team%2C%20I%20would%20like%20to%20discuss%20a%20project',
+  whatsapp: getWhatsAppUrl(),
   linkedin: 'https://www.linkedin.com/company/handysof',
-  github: 'https://github.com/HandySof',
+  github: 'https://github.com/handysof',
 };
+

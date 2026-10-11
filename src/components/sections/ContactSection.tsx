@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Button from '@/components/ui/Button';
-import { SOCIAL_LINKS } from '@/data/navigation';
+import { SOCIAL_LINKS, getWhatsAppUrl } from '@/data/navigation';
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { LinkedInIcon, WhatsAppIcon } from '@/components/ui/Icons';
 
@@ -16,6 +16,29 @@ export default function ContactSection() {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const whatsappUrl = React.useMemo(() => {
+    const hasName = formData.name.trim().length > 0;
+    const hasMessage = formData.message.trim().length > 0;
+
+    if (!hasName && !hasMessage) {
+      return SOCIAL_LINKS.whatsapp;
+    }
+
+    const greeting = hasName
+      ? `Hello HandySof team, my name is ${formData.name.trim()}.`
+      : 'Hello HandySof team!';
+
+    const details = hasMessage
+      ? `I would like to discuss: ${formData.message.trim()}`
+      : 'I would like to inquire about your software development services and discuss a project.';
+
+    const emailNote = formData.email.trim()
+      ? `\nEmail: ${formData.email.trim()}`
+      : '';
+
+    return getWhatsAppUrl(`${greeting}\n\n${details}${emailNote}`);
+  }, [formData.name, formData.message, formData.email]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
@@ -94,7 +117,7 @@ export default function ContactSection() {
               <div className="space-y-3.5">
                 {/* WhatsApp */}
                 <a
-                  href={SOCIAL_LINKS.whatsapp}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-slate-200/80 hover:border-brand-teal-500 hover:bg-brand-teal-50/20 transition-all duration-200 group"
