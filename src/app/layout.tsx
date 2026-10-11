@@ -53,8 +53,12 @@ export const metadata: Metadata = {
     images: ['/images/logo-stacked.png'],
   },
   icons: {
-    icon: '/images/logo-icon.png',
-    apple: '/images/logo-icon.png',
+    icon: [
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 };
 
