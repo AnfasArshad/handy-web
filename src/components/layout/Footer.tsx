@@ -31,7 +31,8 @@ export default function Footer() {
               Building practical digital solutions for a connected world.
             </p>
             <p className="text-xs text-slate-500">
-              Reliable software engineering, custom business platforms, and responsive web applications.
+              Reliable software engineering, custom business platforms, and
+              responsive web applications.
             </p>
           </div>
 
@@ -96,12 +97,12 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Have an inquiry? Send a note to{' '}
+              Have an inquiry? Send a note to{" "}
               <a
                 href={SOCIAL_LINKS.email}
                 className="text-brand-teal-400 hover:underline"
               >
-                contact@handysof.com
+                handysof@outlook.com
               </a>
             </p>
           </div>
@@ -109,9 +110,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>
-            &copy; {currentYear} HandySof. All rights reserved.
-          </p>
+          <p>&copy; {currentYear} HandySof. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span>Modern Software Development</span>
             <span className="w-1 h-1 rounded-full bg-slate-700" />
