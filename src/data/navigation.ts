@@ -21,7 +21,7 @@ export function getWhatsAppUrl(customMessage?: string): string {
 export const SOCIAL_LINKS = {
   email: 'mailto:handysof@outlook.com',
   whatsapp: getWhatsAppUrl(),
-  linkedin: 'https://www.linkedin.com/company/handysof',
+  linkedin: 'https://www.linkedin.com/company/handysof/',
   github: 'https://github.com/handysof',
 };
 

@@ -1,21 +1,23 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import SectionHeading from '@/components/ui/SectionHeading';
-import Button from '@/components/ui/Button';
-import { SOCIAL_LINKS, getWhatsAppUrl } from '@/data/navigation';
-import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-import { LinkedInIcon, WhatsAppIcon } from '@/components/ui/Icons';
+import React, { useState } from "react";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Button from "@/components/ui/Button";
+import { SOCIAL_LINKS, getWhatsAppUrl } from "@/data/navigation";
+import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { LinkedInIcon, WhatsAppIcon } from "@/components/ui/Icons";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const whatsappUrl = React.useMemo(() => {
     const hasName = formData.name.trim().length > 0;
@@ -27,20 +29,22 @@ export default function ContactSection() {
 
     const greeting = hasName
       ? `Hello HandySof team, my name is ${formData.name.trim()}.`
-      : 'Hello HandySof team!';
+      : "Hello HandySof team!";
 
     const details = hasMessage
       ? `I would like to discuss: ${formData.message.trim()}`
-      : 'I would like to inquire about your software development services and discuss a project.';
+      : "I would like to inquire about your software development services and discuss a project.";
 
     const emailNote = formData.email.trim()
       ? `\nEmail: ${formData.email.trim()}`
-      : '';
+      : "";
 
     return getWhatsAppUrl(`${greeting}\n\n${details}${emailNote}`);
   }, [formData.name, formData.message, formData.email]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -50,14 +54,18 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setStatus('error');
-      setErrorMessage('Please fill in all fields before submitting.');
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
+      setStatus("error");
+      setErrorMessage("Please fill in all fields before submitting.");
       return;
     }
 
-    setStatus('loading');
-    setErrorMessage('');
+    setStatus("loading");
+    setErrorMessage("");
 
     try {
       /*
@@ -67,10 +75,10 @@ export default function ContactSection() {
         Submits to /api/contact by default. You can easily switch this
         to call Formspree, Resend, EmailJS, or your custom endpoint.
       */
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -78,23 +86,28 @@ export default function ContactSection() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message.');
+        throw new Error(data.error || "Failed to send message.");
       }
 
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
     } catch (err: unknown) {
-      setStatus('error');
+      setStatus("error");
       if (err instanceof Error) {
         setErrorMessage(err.message);
       } else {
-        setErrorMessage('Something went wrong. Please reach out to us directly via email or WhatsApp.');
+        setErrorMessage(
+          "Something went wrong. Please reach out to us directly via email or WhatsApp.",
+        );
       }
     }
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-white border-t border-slate-100">
+    <section
+      id="contact"
+      className="py-20 sm:py-28 bg-white border-t border-slate-100"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Get in Touch"
@@ -110,7 +123,9 @@ export default function ContactSection() {
                 Let&apos;s start a conversation
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                Whether you need a full web platform, a business tool, or technical guidance on an upcoming project, we are ready to assist.
+                Whether you need a full web platform, a business tool, or
+                technical guidance on an upcoming project, we are ready to
+                assist.
               </p>
 
               {/* Direct channels cards */}
@@ -148,7 +163,7 @@ export default function ContactSection() {
                       Email Us
                     </div>
                     <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue-700">
-                      contact@handysof.com
+                      handysof@outlook.com
                     </div>
                   </div>
                 </a>
@@ -177,7 +192,11 @@ export default function ContactSection() {
 
             {/* Response time note */}
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600">
-              <span className="font-semibold text-slate-800">Quick Response:</span> We typically respond within 24 hours during standard business hours.
+              <span className="font-semibold text-slate-800">
+                Quick Response:
+              </span>{" "}
+              We typically respond within 24 hours during standard business
+              hours.
             </div>
           </div>
 
@@ -246,7 +265,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Error Banner */}
-                {status === 'error' && (
+                {status === "error" && (
                   <div className="flex items-center gap-2 p-3.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs sm:text-sm">
                     <AlertCircle className="w-4 h-4 shrink-0" />
                     <span>{errorMessage}</span>
@@ -254,11 +273,12 @@ export default function ContactSection() {
                 )}
 
                 {/* Success Banner */}
-                {status === 'success' && (
+                {status === "success" && (
                   <div className="flex items-center gap-2 p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm">
                     <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-600" />
                     <span>
-                      Thank you! Your message has been sent successfully. We will get in touch with you shortly.
+                      Thank you! Your message has been sent successfully. We
+                      will get in touch with you shortly.
                     </span>
                   </div>
                 )}
@@ -269,17 +289,19 @@ export default function ContactSection() {
                     type="submit"
                     variant="primary"
                     size="lg"
-                    disabled={status === 'loading'}
+                    disabled={status === "loading"}
                     className="w-full sm:w-auto"
                     icon={
-                      status === 'loading' ? (
+                      status === "loading" ? (
                         <Loader2 className="w-4 h-4 animate-spin" />
                       ) : (
                         <Send className="w-4 h-4" />
                       )
                     }
                   >
-                    {status === 'loading' ? 'Sending Message...' : 'Send Message'}
+                    {status === "loading"
+                      ? "Sending Message..."
+                      : "Send Message"}
                   </Button>
                 </div>
               </form>
