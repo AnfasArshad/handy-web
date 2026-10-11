@@ -72,6 +72,8 @@ export default function Footer() {
               </a>
               <a
                 href={SOCIAL_LINKS.email}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Email"
                 className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-brand-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors duration-150"
               >

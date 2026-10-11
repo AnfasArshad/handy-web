@@ -153,6 +153,8 @@ export default function ContactSection() {
                 {/* Email */}
                 <a
                   href={SOCIAL_LINKS.email}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl border border-slate-200/80 hover:border-brand-blue-500 hover:bg-brand-blue-50/20 transition-all duration-200 group"
                 >
                   <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-brand-blue-50 text-brand-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
