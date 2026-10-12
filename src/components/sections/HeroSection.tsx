@@ -33,7 +33,8 @@ export default function HeroSection() {
 
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-blue-900 leading-[1.2] sm:leading-[1.15]">
-              Building Software That Makes a Difference.
+              Building Software That{' '}
+              <span className="gradient-text">Makes a Difference.</span>
             </h1>
 
             {/* Supporting Text */}
@@ -46,7 +47,7 @@ export default function HeroSection() {
             <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 w-full sm:w-auto">
               <Button
                 variant="primary"
-                size="lg"
+                size="md"
                 asLink
                 href="#services"
                 icon={<ArrowRight className="w-4 h-4" />}
@@ -56,7 +57,7 @@ export default function HeroSection() {
               </Button>
               <Button
                 variant="outline"
-                size="lg"
+                size="md"
                 asLink
                 href="#contact"
                 icon={<MessageSquare className="w-4 h-4 text-brand-teal-600" />}
